@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height: 100vh;
+    font-family: sans-serif;
+    background-color: black;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .input{
+        display: flex;
+        gap: 10px;
+        input{
+            background-color: rgba(255, 255, 255, 0.18);
+            border: none;
+            outline: none;
+            color: white;
+            border-radius: 5px;
+            height: 50px;
+            padding-inline: 20px;
+            font-size: 20px;
+            &::placeholder{
+                color: rgba(255, 255, 255, 0.34);
+            }
+        }
+        button{
+            padding-inline: 20px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            height: 50px;
+            font-size: 20px;
+            background-color: #525252;
+            color: white;
+            cursor: pointer;
+        }
+    }
+    .content{
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.17);
+        color: white;
+        padding: 20px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 300px;
+        .items{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .item{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                .name{
+                    font-size: 20px;
+                }
+                .item-controls{
+                    display: flex;
+                    gap: 10px;
+                    font-size: 20px;
+                    .remove{
+                        color: #f47174;
+                        cursor: pointer;
+                    }
+                    .done{
+                        cursor: pointer;
+                        color: rgb(71, 176, 71);
+                    }
+                }
+            }
+            .item.done{
+                .name{
+                    position: relative;
+                    &:before{
+                        content: '';
+                        height: 2px;
+                        background-color: rgb(255, 39, 42);
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        left: 0;
+                        animation: line-through 500ms forwards;
+                    }
+                }
+                .item-controls{
+                    .done{
+                        color: rgb(38, 91, 38);
+                    }
+                }
+            }
+        }
+        .buttons{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            div{
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@keyframes line-through {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 100%;
+    }
+}
